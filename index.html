@@ -83,7 +83,13 @@ input {
     <h2>⏳ Our Time Together</h2>
     <p id="countdown"></p>
 
-    <p>You are imperfectly perfect.</p>
+    <p>You are imperfectly perfect and main hoon na.</p>
+    <br><br>
+<button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
+
+<audio id="bgMusic" loop>
+    <source src="PUT-YOUR-MP3-LINK-HERE.mp3" type="audio/mp3">
+</audio>
 
     <button onclick="showMessage()">Press if sad</button>
     <p id="specialMessage"></p>
@@ -94,7 +100,6 @@ input {
 <div class="secret" onclick="secretMessage()">🌙</div>
 
 <!-- MUSIC -->
-<audio autoplay loop>
 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
 </audio>
 
