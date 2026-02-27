@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Our Home</title>
+<title>Our Little Universe</title>
 
 <style>
 body {
@@ -61,6 +61,7 @@ button {
     border-radius: 30px;
     cursor: pointer;
     transition: 0.3s;
+    margin: 8px;
 }
 
 button:hover {
@@ -97,6 +98,30 @@ input {
     opacity: 0.2;
     cursor: pointer;
 }
+
+.poem-section {
+    margin-top: 40px;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255,255,255,0.15);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(3px);
+}
+
+.poem-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff4d6d;
+}
+
+.poem-section p {
+    white-space: pre-line;
+    margin-bottom: 15px;
+    line-height: 1.5em;
+}
 </style>
 </head>
 
@@ -120,7 +145,133 @@ input {
     <p id="countdown"></p>
 
     <p>You are imperfectly perfect and main hoon na.</p>
-    <br><br>
+
+    <!-- Poems & Messages Section -->
+    <div class="poem-section">
+        <h2>💌 Poem</h2>
+        <p>
+I want to write you a love letter,
+But what should I write?
+Should I write about
+The way you smile,
+Or the way you cry 
+For me or ’cause of me?
+
+The way you dress,
+The way you stress
+About your insecurities.
+
+Should I tell you
+How much I love the things
+You don’t like about you?
+
+Or should I pray
+That you’ll realise how imperfectly perfect you are?
+
+Or should I tell you
+That you make me cry,
+You don’t let me sleep,
+That I can’t imagine my life without you?
+
+Can I write it in a love letter?
+Or should I rhyme it better?
+What’s the matter?
+
+Okay, now I will come back.
+Should I let you in on a secret?
+
+Okay… the way your straight
+Sorry, the way your curly hair moves, I love it.
+
+The way your buttons pop out
+When you eat, I love it.
+
+The way you smell,
+I love it.
+
+Your nose, your eyes, your glowing… uhmm… your lips,
+And your thighs.
+
+I’m afraid even after all of this,
+I cannot tell you
+How much I love you.
+
+Let me put it this way 
+Like what the moon is to the tides,
+What your glasses are to your weak eyes,
+What stars are to the skies…
+
+Maybe that will help you
+Understand how much I love you,
+How much I need you,
+How much you hurt me.
+
+Maybe someday
+I will have words
+So that I can make you feel what I feel 
+How much I like when you kiss me,
+When you miss me,
+When you beat me.
+
+But I don’t know
+How to write a love letter.
+Will you teach me?
+        </p>
+
+        <h2>✨ Pragya Says</h2>
+        <p>
+1. Because u r only maid for me  
+2. if u pretend it's rape then no one will bat an eye  
+3. fuck me siraj  
+4. no privilege  
+5. iski yeh spelling hoti hai kya  
+6. maine esa kab bola  
+7. lets eat both my love mojo and mcd...I'll pay  
+8. bohot emotional message tha  
+9. (Burping intensify)  
+10. ALWAYS BLAME THE CAMERA ANGLE
+        </p>
+
+        <h2>🌙 If You Ever Feel Sad</h2>
+        <p>
+Hey, you’ll come home soon, right?
+
+On a night when the crescent moon sways in my sighs
+I close my eyes with my mind full of nothing but thoughts of you
+I want to see you and I feel like crying, in a romantic mood
+So I’ll convey my feelings to you
+
+Because I’ve always known
+how you’ve been working…really, really hard
+
+The one I love is so strong that it worries me
+Please show your weak side to me alone
+I’ll find you before the stars do
+So please come straight home
+
+Even when I’m far away, my feelings are still with you
+So I can feel that you might be lonely right now
+Please call for me and I’ll rush to your side, that’s what I want to say
+But I don’t want to get in your way
+
+But, but…
+The truth is, I want to see you and I feel like crying
+And I know it, I know that you’re working hard
+Look, you’re so dear to me
+I’m waiting for you, I’m waiting for you all the time
+
+The one I love is so strong that it worries me
+Please show your weak side to me alone
+I’ll find you before the stars do
+So please come straight home
+
+Where is the one I love, I wonder?
+I gaze at the night sky in a romantic mood
+I’ll find you before anyone else does
+So please come straight home, hey, please come home soon!
+        </p>
+    </div>
+
     <!-- Sad Button -->
     <button onclick="showMessage()">Press if sad</button>
     <p id="specialMessage"></p>
@@ -128,7 +279,7 @@ input {
     <!-- Music Button -->
     <button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
 
-      <!-- Background Music -->
+    <!-- Background Music -->
     <audio id="bgMusic" loop>
         <source src="dude.mp3" type="audio/mp3">
     </audio>
@@ -137,8 +288,9 @@ input {
 
 <!-- SECRET BUTTON -->
 <div class="secret" onclick="secretMessage()">🌙</div>
+
 <script>
-    var music = document.getElementById("bgMusic");
+var music = document.getElementById("bgMusic");
 var musicBtn = document.getElementById("musicBtn");
 
 function toggleMusic() {
@@ -154,7 +306,6 @@ function toggleMusic() {
 // PASSWORD FUNCTION
 function checkPassword() {
     var pass = document.getElementById("password").value;
-
     if(pass === "9may") {
         document.getElementById("loginPage").classList.add("hidden");
         document.getElementById("mainPage").classList.remove("hidden");
@@ -171,25 +322,19 @@ function showMessage() {
 
 // ANNIVERSARY COUNTDOWN (9 MAY EVERY YEAR)
 function updateCountdown() {
-
     var now = new Date();
     var anniversary = new Date(now.getFullYear(), 4, 9);
-
     if (now > anniversary) {
         anniversary = new Date(now.getFullYear() + 1, 4, 9);
     }
-
     var diff = anniversary - now;
-
     var days = Math.floor(diff / (1000 * 60 * 60 * 24));
     var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     var minutes = Math.floor((diff / (1000 * 60)) % 60);
     var seconds = Math.floor((diff / 1000) % 60);
-
     document.getElementById("countdown").innerHTML =
         days + " days " + hours + " hrs " + minutes + " min " + seconds + " sec until we celebrate us again 💖";
 }
-
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
@@ -203,14 +348,12 @@ function createHeart() {
     document.body.appendChild(heart);
     setTimeout(() => { heart.remove(); }, 5000);
 }
-
 setInterval(createHeart, 600);
 
 // SECRET MESSAGE
 function secretMessage() {
     alert("No matter where life takes us, I will always choose you.");
 }
-
 </script>
 
 </body>
