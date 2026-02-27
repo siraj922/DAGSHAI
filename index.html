@@ -85,15 +85,18 @@ input {
 
     <p>You are imperfectly perfect and main hoon na.</p>
     <br><br>
-<button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
 
-<audio>
-    <audio id="bgMusic" controls>
-    <source src="dude.mp3" type="audio/mp3">
-</audio>
+    <!-- Music Button -->
+    <button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
 
+    <!-- Sad Button -->
     <button onclick="showMessage()">Press if sad</button>
     <p id="specialMessage"></p>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="dude.mp3" type="audio/mp3">
+    </audio>
 
 </div>
 
