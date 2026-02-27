@@ -88,7 +88,8 @@ input {
 <button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
 
 <audio id="bgMusic" loop>
-    <source src="PUT-YOUR-MP3-LINK-HERE.mp3" type="audio/mp3">
+    <source src="OM_SHANTI_OM_-
+        _Agar_Kahoon_-_(mp3.pm).mp3" type="audio/mp3">
 </audio>
 
     <button onclick="showMessage()">Press if sad</button>
@@ -104,6 +105,18 @@ input {
 </audio>
 
 <script>
+    var music = document.getElementById("bgMusic");
+var musicBtn = document.getElementById("musicBtn");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        musicBtn.innerText = "⏸ Pause Music";
+    } else {
+        music.pause();
+        musicBtn.innerText = "🎵 Play Music";
+    }
+}
 
 // PASSWORD FUNCTION
 function checkPassword() {
