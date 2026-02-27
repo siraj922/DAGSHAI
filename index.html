@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Our Little Universe</title>
 
+<style>
+body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(to bottom right, #ffdee9, #b5fffc);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 80px 20px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ff1e4d;
+}
+
+.hidden {
+    display: none;
+}
+
+input {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.heart {
+    position: fixed;
+    color: red;
+    font-size: 18px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+
+.secret {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    opacity: 0.2;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="container" id="loginPage">
+    <h1>This Universe Belongs To Us 💖</h1>
+    <p>Only she can unlock this.</p>
+    <input type="password" id="password" placeholder="Our secret word">
+    <br><br>
+    <button onclick="checkPassword()">Enter Our World</button>
+</div>
+
+<!-- MAIN PAGE -->
+<div class="container hidden" id="mainPage">
+
+    <h1>Welcome, My Love 🌸</h1>
+
+    <h2>⏳ Our Time Together</h2>
+    <p id="countdown"></p>
+
+    <p>You are imperfectly perfect.</p>
+
+    <button onclick="showMessage()">Press if sad</button>
+    <p id="specialMessage"></p>
+
+</div>
+
+<!-- SECRET BUTTON -->
+<div class="secret" onclick="secretMessage()">🌙</div>
+
+<!-- MUSIC -->
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+// PASSWORD FUNCTION
+function checkPassword() {
+    var pass = document.getElementById("password").value;
+
+    if(pass === "9may") {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("mainPage").classList.remove("hidden");
+    } else {
+        alert("Wrong password. This world belongs to us.");
+    }
+}
+
+// SAD BUTTON MESSAGE
+function showMessage() {
+    document.getElementById("specialMessage").innerHTML =
+    "You are safe here. You are loved deeply. You are enough exactly as you are.";
+}
+
+// ANNIVERSARY COUNTDOWN (9 MAY EVERY YEAR)
+function updateCountdown() {
+
+    var now = new Date();
+    var anniversary = new Date(now.getFullYear(), 4, 9);
+
+    if (now > anniversary) {
+        anniversary = new Date(now.getFullYear() + 1, 4, 9);
+    }
+
+    var diff = anniversary - now;
+
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    var minutes = Math.floor((diff / (1000 * 60)) % 60);
+    var seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("countdown").innerHTML =
+        days + " days " + hours + " hrs " + minutes + " min " + seconds + " sec until we celebrate us again 💖";
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// FLOATING HEARTS
+function createHeart() {
+    var heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 5000);
+}
+
+setInterval(createHeart, 600);
+
+// SECRET MESSAGE
+function secretMessage() {
+    alert("No matter where life takes us, I will always choose you.");
+}
+
+</script>
+
+</body>
+</html>
